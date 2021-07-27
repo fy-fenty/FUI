@@ -1,0 +1,60 @@
+<nav
+  class="page-ui"
+  *ngIf="pageArr.length > 1"
+  [(cxaScrollTo)]="scrollFlag"
+  scrollType="top"
+>
+  <button (click)="changePage('pre')" *ngIf="currentPage !== 0">
+    {{ preLabel }}
+  </button>
+  <ul class="for-desktop for-tablet">
+    <li
+      class="first-page"
+      *ngIf="pageCount > pageLinkSize && currentPage >= pageLinkSize - 2"
+    >
+      <a href="javascript:;" (click)="changePage(0)">1</a>
+    </li>
+
+    <li
+      class="page-splitor"
+      *ngIf="pageCount > pageLinkSize + 1 && currentPage >= pageLinkSize - 1"
+    >
+      ...
+    </li>
+    <li *ngFor="let page of pageArr">
+      <strong *ngIf="page == currentPage">{{ page + 1 }}</strong>
+      <a
+        *ngIf="page !== currentPage"
+        href="javascript:;"
+        (click)="changePage(page)"
+        >{{ page + 1 }}</a
+      >
+    </li>
+    <li
+      class="page-splitor"
+      *ngIf="
+        pageCount > pageLinkSize + 1 && currentPage <= pageCount - pageLinkSize
+      "
+    >
+      ...
+    </li>
+    <li
+      class="last-page"
+      *ngIf="
+        pageCount > pageLinkSize && currentPage <= pageCount - pageLinkSize + 1
+      "
+    >
+      <a href="javascript:;" (click)="changePage(pageCount - 1)">{{
+        pageCount
+      }}</a>
+    </li>
+  </ul>
+  <span class="for-mobile pagintor-index">
+    <strong class="current-page">{{ currentPage + 1 }}</strong>
+    <span>/</span>
+    <span>{{ pageCount }}</span>
+  </span>
+  <button (click)="changePage('next')" *ngIf="currentPage < pageCount - 1">
+    {{ nextLabel }}
+  </button>
+</nav>

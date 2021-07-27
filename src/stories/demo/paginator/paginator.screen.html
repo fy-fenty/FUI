@@ -1,0 +1,12 @@
+<div class="opts">
+  <span (click)="sort(-1, 1)">⬆️</span>
+  <span (click)="sort(1, -1)">⬇️</span>
+</div>
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>
+<storybook-paginator
+  [rows]="rowCount"
+  [(data)]="items"
+  #pgtor>
+</storybook-paginator>
