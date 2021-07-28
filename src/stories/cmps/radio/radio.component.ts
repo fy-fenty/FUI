@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'storybook-radio',
+  selector: 'fui-radio',
   template: ` <label
     [ngClass]="classes"
     [ngStyle]="{ 'background-color': backgroundColor }">
@@ -40,6 +40,6 @@ export default class RadioComponent {
 
   public get classes(): string[] {
 
-    return ['storybook-radio', `storybook-radio--${this.size}`];
+    return ['fui-radio', `fui-radio--${this.size}`];
   }
 }
