@@ -1,0 +1,5 @@
+<div class="tip-container">
+  <div @shown *ngFor="let msg of msgTips" class="tip-wrap">
+    <fui-messagetip *ngIf="msg" [messageType]="msg.tipType || 'success'" visible=true [title]="msg.title" [message]="msg.message"></fui-messagetip>
+  </div>
+</div>
