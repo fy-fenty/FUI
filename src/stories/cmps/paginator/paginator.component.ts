@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'storybook-paginator',
+  selector: 'fui-paginator',
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.less']
 })
@@ -42,12 +42,9 @@ export default class PaginatorComponent implements OnInit, OnChanges {
   @Input() forBackednSort = false;
   @Output() dataChange: EventEmitter<Array<any>> = new EventEmitter<Array<any>>();
   @Output() pageChange = new EventEmitter();
-  @Output() setFocus = new EventEmitter();
   origData: Array<any> = [];
   pageCount: number = 0;
   pageArr: Array<number> = [];
-  scrollFlag = false;
-  backSorting = false;
 
   constructor() {
   }
@@ -105,7 +102,7 @@ export default class PaginatorComponent implements OnInit, OnChanges {
       this.data = Object.assign(this.origData.slice(
         this.currentPage * this.rows,
         this.rows + (this.currentPage * this.rows)), { _isPaged: true });
-        setTimeout(() => this.dataChange.emit(this.data));
+      setTimeout(() => this.dataChange.emit(this.data));
     }
     this.pageChange.emit({
       first: this.currentPage * this.rows,
@@ -124,15 +121,13 @@ export default class PaginatorComponent implements OnInit, OnChanges {
 
   getPageCount() {
     // tslint:disable-next-line: max-line-length
-    this.pageCount = this.pagingInfoFromBackend ? Math.ceil(this.pagingInfoFromBackend.total / this.rows) : Math.ceil(this.origData.length / this.rows) ;
+    this.pageCount = this.pagingInfoFromBackend ? Math.ceil(this.pagingInfoFromBackend.total / this.rows) : Math.ceil(this.origData.length / this.rows);
   }
 
   changePage(actionKey: any) {
     this.getCurrentPage(actionKey);
     this.getVisiblePageArr();
     this.doPage();
-    this.scrollFlag = true;
-    this.setFocus.emit(true);
   }
 
   getVisiblePageArr() {

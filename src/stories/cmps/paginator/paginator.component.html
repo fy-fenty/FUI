@@ -1,12 +1,9 @@
 <nav
   class="page-ui"
   *ngIf="pageArr.length > 1"
-  [(cxaScrollTo)]="scrollFlag"
   scrollType="top"
 >
-  <button (click)="changePage('pre')" *ngIf="currentPage !== 0">
-    {{ preLabel }}
-  </button>
+  <fui-button [label]="preLabel" (onClick)="changePage('pre')" *ngIf="currentPage !== 0"></fui-button>
   <ul class="for-desktop for-tablet">
     <li
       class="first-page"
@@ -54,7 +51,5 @@
     <span>/</span>
     <span>{{ pageCount }}</span>
   </span>
-  <button (click)="changePage('next')" *ngIf="currentPage < pageCount - 1">
-    {{ nextLabel }}
-  </button>
+  <fui-button [label]="nextLabel" (onClick)="changePage('next')" *ngIf="currentPage < pageCount - 1"></fui-button>
 </nav>

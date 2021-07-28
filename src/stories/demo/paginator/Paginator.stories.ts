@@ -4,13 +4,14 @@ import { moduleMetadata } from '@storybook/angular'
 import { CommonModule } from '@angular/common';
 import PaginatorComponent from '../../cmps/paginator/paginator.component';
 import PaginatorScreen from './paginator.screen';
+import ButtonComponent from 'src/stories/cmps/button/button.component';
 
 export default {
   component: PaginatorScreen,
   title: 'Demo/Paginator',
   decorators: [
     moduleMetadata({
-      declarations: [PaginatorComponent],
+      declarations: [PaginatorComponent, ButtonComponent],
       imports: [CommonModule]
     })
   ]
