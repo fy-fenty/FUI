@@ -1,0 +1,16 @@
+<div
+  class="tip-container {{ messageType }}-tip"
+  tabindex="0"
+  *ngIf="visible"
+  [class.grey-tip]="isGreyBg"
+>
+  <i class="icon message-icon"></i>
+  <div class="message-content">
+    <strong class="tip-title" [hidden]="!title">{{ title }}</strong>
+    <span
+      class="tip-content"
+      [hidden]="!message"
+      [innerHTML]="message"
+    ></span>
+  </div>
+</div>
