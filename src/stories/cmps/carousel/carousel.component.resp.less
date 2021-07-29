@@ -1,0 +1,45 @@
+@media only screen and (max-width: 37.4375em) {
+  .carousel-wrap .carousel-items {
+    width: auto;
+    height: unset;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: left 0.5s;
+    position: relative;
+  }
+  .carousel-wrap .carousel-items.touchmoved {
+    transition: none;
+  }
+  .carousel-wrap .carousel-items .carousel {
+    position: unset;
+    display: unset;
+    transform: unset;
+    min-width: 100%;
+    visibility: visible;
+  }
+  .carousel-wrap em {
+    transition: unset;
+  }
+  .carousel-wrap .left-cont, .carousel-wrap .right-cont {
+    height: 3rem;
+    width: 3rem;
+  }
+  .carousel-wrap .left-cont {
+    margin-left: -1.5rem;
+  }
+  .carousel-wrap .left-cont em {
+    margin-right: 0.5rem;
+  }
+  .carousel-wrap .left-cont:hover em {
+    margin-right: 0.5rem;
+  }
+  .carousel-wrap .right-cont {
+    margin-right: -1.5rem;
+  }
+  .carousel-wrap .right-cont em {
+    margin-left: 0.5rem;
+  }
+  .carousel-wrap .right-cont:hover em {
+    margin-left: 0.5rem;
+  }
+}

@@ -1,0 +1,7 @@
+<fui-carousel class="carousel-wrap">
+  <ng-template #carouselItem *ngFor="let carousel of carousels; let i = index">
+    <fui-carousel-item>
+      <div [class]="'citem' + ' citem' + i">{{i}} - {{carousel}}</div>
+    </fui-carousel-item>
+  </ng-template>
+</fui-carousel>

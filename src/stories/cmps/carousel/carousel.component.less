@@ -1,0 +1,118 @@
+.disable-transition {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+
+.carousel-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.carousel-wrap .arrow-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.carousel-wrap .carousel-items {
+  width: 60rem;
+  height: 20rem;
+}
+.carousel-wrap .carousel-items .carousel {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform: scale(0.8);
+  visibility: hidden;
+  transition: transform 0.5s, visibility 0.5s;
+}
+.carousel-wrap .carousel-items .carousel.pre-tonext, .carousel-wrap .carousel-items .carousel.pre-toprev {
+  transform: scale(1);
+}
+.carousel-wrap .carousel-items .carousel.pre-tonext {
+  left: 100%;
+}
+.carousel-wrap .carousel-items .carousel.pre-toprev {
+  left: -100%;
+}
+.carousel-wrap .carousel-items .carousel.active {
+  visibility: visible;
+  transition: left 0.5s, transform 0.5s, visibility 0s;
+  z-index: 0;
+  left: 0;
+}
+.carousel-wrap .carousel-items .carousel:hover .desc-tit {
+  text-decoration: underline;
+}
+.carousel-wrap .left-cont,
+.carousel-wrap .right-cont {
+  display: flex;
+  align-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+.carousel-wrap .left-cont:hover, .carousel-wrap .right-cont:hover {
+  cursor: pointer;
+}
+.carousel-wrap em {
+  color: #006564;
+  font-size: 1.125rem;
+  transition: margin 0.3s;
+}
+.carousel-wrap .left-cont {
+  margin-left: -30px;
+  justify-content: flex-end;
+}
+.carousel-wrap .left-cont:hover em {
+  margin-right: 1.125rem;
+}
+.carousel-wrap .left-cont em {
+  margin-right: 0.75rem;
+}
+.carousel-wrap .right-cont {
+  margin-right: -30px;
+  justify-content: flex-start;
+}
+.carousel-wrap .right-cont:hover em {
+  margin-left: 1.125rem;
+}
+.carousel-wrap .right-cont em {
+  margin-left: 0.75rem;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+}
+.pages ol {
+  margin: 0;
+}
+.pages ol li {
+  list-style-type: none;
+  float: left;
+  border: 1px solid #979797;
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: #d8d8d8;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0.625rem 0.4375rem 0 0;
+}
+.pages ol li.active {
+  background-color: #006564;
+}

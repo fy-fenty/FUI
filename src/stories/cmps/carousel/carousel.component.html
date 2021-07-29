@@ -1,0 +1,45 @@
+<div class="carousel-wrap">
+  <div #arrowWrap class="arrow-wrap">
+    <div
+      *ngIf="carouselList?.length > 1"
+      class="left-cont"
+      (click)="gotoPage(curInde - 1)"
+    >
+      &lt;
+    </div>
+    <div
+      *ngIf="carouselList?.length > 1"
+      class="right-cont"
+      (click)="gotoPage(curInde + 1)"
+    >
+      &gt;
+    </div>
+  </div>
+  <div
+    class="carousel-items"
+    [style.left]="-(curInde * 100) + movedPercent + '%'"
+    [class.touchmoved]="startListenTouch"
+    (touchstart)="touchStart($event)"
+    (touchmove)="touchMove($event)"
+    (touchend)="touchEnd($event)"
+  >
+    <div
+      *ngFor="let carousel of carouselList; let i = index"
+      class="carousel"
+      [class.pre-tonext]="prePage === i && goRight"
+      [class.pre-toprev]="prePage === i && !goRight"
+      [class.active]="curInde === i"
+    >
+      <ng-container [ngTemplateOutlet]="carousel"></ng-container>
+    </div>
+  </div>
+</div>
+<div class="pages" *ngIf="carouselList?.length > 1">
+  <ol>
+    <li
+      *ngFor="let c of carouselList; let i = index"
+      (click)="gotoPage(i)"
+      [class.active]="curInde === i"
+    ></li>
+  </ol>
+</div>
