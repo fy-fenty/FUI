@@ -1,0 +1,42 @@
+<div
+  class="accordion-container {{ classRef }}"
+  [class.islast]="isLast"
+  [class.searchbox-accordion-container]="searchbox"
+>
+  <div class="accordion-title">
+    <a
+      href="javascript:void(0)"
+      [attr.id]="idRef + '-head'"
+      [attr.aria-expanded]="expanded"
+      [attr.aria-controls]="idRef + '-body'"
+      (click)="headerClicked($event)"
+    >
+      <i
+        class="icon-arrow"
+        *ngIf="!searchbox"
+        [ngClass]="
+          expanded ? 'fui-icon-arrow-up-sharp' : 'fui-icon-arrow-down-sharp'
+        "
+      ></i>
+      <i
+        class="icon-arrow"
+        *ngIf="searchbox"
+        [ngClass]="expanded ? 'fui-icon-arrow-top' : 'fui-icon-arrow-bottom'"
+      ></i>
+      {{ headerLabel }}
+      <span class="tab-number" *ngIf="config?.counterTotal">{{
+        config?.counterTotal
+      }}</span>
+      <em class="px-2" [ngClass]="headerIcon" *ngIf="headerIcon"></em>
+    </a>
+  </div>
+  <div
+    class="accordion-content"
+    *ngIf="expanded"
+    [attr.id]="idRef + '-body'"
+    [attr.aria-expanded]="expanded"
+    [attr.aria-labelledby]="idRef + '-head'"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>
