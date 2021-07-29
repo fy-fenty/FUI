@@ -1,0 +1,30 @@
+<div [ngStyle]="style">
+  <div role="tablist" class="nav {{ classRef }}" #tabPanelList>
+    <a
+      *ngFor="let listItem of list; let i = index"
+      [ngStyle]="tabStyle"
+      class="nav-item nav-link"
+      [class.active]="currentIndex === i"
+      href="javascript:void(0)"
+      role="tab"
+      [attr.index]="i"
+      [attr.aria-selected]="i === currentIndex ? true : false"
+      [attr.aria-controls]="listItem.idRef + '-body'"
+      [attr.id]="listItem.idRef + '-head'"
+      [tabIndex]="i === currentIndex ? 0 : -1"
+      (click)="tabClick($event, i)"
+      (smeNavigateKey)="pressedNavigateKey($event)"
+      href="javascript:void(0)"
+    >
+      <!-- (smeOnTab)="onTabPress($event)" -->
+      {{ listItem.label }}
+      <ng-container *ngIf="listItem.icon">
+        <span [className]="listItem.icon"></span>
+      </ng-container>
+      <ng-container *ngIf="listItem.badge">
+        <span class="badge">{{ listItem.badge }}</span>
+      </ng-container>
+    </a>
+  </div>
+  <ng-content></ng-content>
+</div>
