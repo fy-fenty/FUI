@@ -1,6 +1,6 @@
 // YourPage.component.ts
 
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import PaginatorComponent from 'src/stories/cmps/paginator/paginator.component';
 
 
