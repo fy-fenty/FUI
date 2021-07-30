@@ -10,6 +10,10 @@ import {
   Input
 } from '@angular/core';
 
+/**
+ * Support responsive, there will show different behavior on different viewport
+ * And support touch draggle in small portal
+ */
 @Component({
   selector: 'fui-carousel-item',
   template: '<ng-content></ng-content>',
@@ -34,21 +38,36 @@ export class CarouselItemComponent {
 
 export default class CarouselComponent {
   @ContentChildren('carouselItem')
-  public carouselList: QueryList<TemplateRef<HTMLElement>> = new QueryList();
+  carouselList: QueryList<TemplateRef<HTMLElement>> = new QueryList();
 
-  public curInde = 0;
-  public prePage = 0;
-  public goRight = true;
-  public startListenTouch = false;
+  /**
+   * Current page index
+   */
+  curInde: number = 0;
+
+  /**
+   * Total items on one page
+   */
+  prePage: number = 0;
+
+  /**
+   * Is right slide for next page?
+   */
+  goRight: boolean = true;
+  startListenTouch = false;
   private touchStartPoint = { x: 0, y: 0 };
-  public movedPercent = 0;
+  movedPercent: number = 0;
   private touchStartTimestamp = 0;
+  @ViewChild('arrowWrap') public arrowWrapEle: ElementRef = new ElementRef(null);
+
+  /**
+   * For Responsieve, in default: SM=720, MD=1024, LG=1920
+   */
   @Input() public portalSize = {
     SM: 720,
     MD: 1024,
     LG: 1920
   };
-  @ViewChild('arrowWrap') public arrowWrapEle: ElementRef = new ElementRef(null);
 
   constructor(
     public changeRef: ChangeDetectorRef

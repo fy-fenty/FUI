@@ -17,3 +17,11 @@ Default.args = {
   headerIcon: 'icon',
   expanded: true
 };
+
+export const DefaultWithTips = Template.bind({});
+DefaultWithTips.args = {
+  headerLabel: 'headerLabel',
+  tips: 'tips',
+  headerIcon: 'icon',
+  expanded: true
+};

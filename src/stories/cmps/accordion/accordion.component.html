@@ -1,7 +1,6 @@
 <div
   class="accordion-container {{ classRef }}"
   [class.islast]="isLast"
-  [class.searchbox-accordion-container]="searchbox"
 >
   <div class="accordion-title">
     <a
@@ -16,10 +15,6 @@
         [ngClass]="
           expanded ? 'icon-angle-down' : 'icon-angle-right'
         "
-      ></i>
-      <i class="icon-arrow"
-        *ngIf="searchbox"
-        [ngClass]="expanded ? 'icon-angle-down' : 'icon-angle-right'"
       ></i>
       {{ headerLabel }}
       <span class="tab-number" *ngIf="tips">{{ tips }}</span>
