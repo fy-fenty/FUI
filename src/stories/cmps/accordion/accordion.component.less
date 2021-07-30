@@ -1,8 +1,6 @@
+@import url(../../assets/less/font-awesome.less);
+
 .disable-transition {
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
   transition: none;
 }
 
@@ -12,37 +10,14 @@
 .accordion-container.islast {
   border-bottom: 0.0625rem solid #c6c2c1;
 }
-.accordion-container.bold a {
-  font-family: "Aktiv Grotesk W01 Bold1370651", "sans-serif";
-}
-.accordion-container.bold a:lang(th), .accordion-container.bold a:lang(th-TH) {
-  font-family: "Tahoma", "sans-serif";
-}
-.accordion-container.bold a:lang(ko), .accordion-container.bold a:lang(ko-KR) {
-  font-family: "Aktiv Grotesk W01 KR Bold", "sans-serif";
-}
-.accordion-container.bold a:lang(zh), .accordion-container.bold a:lang(zh-HK), .accordion-container.bold a:lang(zh-TW) {
-  font-weight: bold;
-  font-family: "Aktiv Grotesk W01 TC Bold", "sans-serif";
-}
-.accordion-container.bold a:lang(sc), .accordion-container.bold a:lang(zh-CN) {
-  font-family: "Aktiv Grotesk W01 SC Bold", "sans-serif";
-}
-.accordion-container.bold a:lang(ja), .accordion-container.bold a:lang(ja-JP) {
-  font-family: "Aktiv Grotesk W01 JP Bold", "sans-serif";
-}
 .accordion-container .accordion-title {
   position: relative;
-  padding-left: 3rem;
+  padding-left: 2.5rem;
   line-height: 1.125rem;
 }
 .accordion-container .accordion-title .icon-arrow {
-  -webkit-transform: translate(0, -50%);
-  -moz-transform: translate(0, -50%);
-  -o-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
-  font-size: 0.625rem;
+  font-size: 1.2rem;
   position: absolute;
   left: 1rem;
   top: 50%;
@@ -50,6 +25,7 @@
 .accordion-container .accordion-title a {
   padding: 1rem 0;
   display: block;
+  text-decoration: none;
 }
 .accordion-container .accordion-title .icon-arrow.fui-icon-arrow-top,
 .accordion-container .accordion-title .icon-arrow.fui-icon-arrow-bottom {
@@ -68,37 +44,14 @@
 :host ::ng-deep .tab-number {
   font-family: "Aktiv Grotesk W01 Bold1370651", "sans-serif";
   padding: 0 0.3125rem;
-  background-color: #006564;
+  background-color: #333;
   border-radius: 1rem;
   font-size: 0.75rem;
   color: #fff;
-  border: 0.0625rem solid #006564;
+  border: 0.0625rem solid #333;
   line-height: 1rem;
   margin-left: 0.5rem;
   margin-top: -0.125rem;
   border-radius: 0.6875rem;
   padding: 0.125rem 0.5rem;
-}
-:host ::ng-deep .tab-number:lang(th), :host ::ng-deep .tab-number:lang(th-TH) {
-  font-family: "Tahoma", "sans-serif";
-}
-:host ::ng-deep .tab-number:lang(ko), :host ::ng-deep .tab-number:lang(ko-KR) {
-  font-family: "Aktiv Grotesk W01 KR Bold", "sans-serif";
-}
-:host ::ng-deep .tab-number:lang(zh), :host ::ng-deep .tab-number:lang(zh-HK), :host ::ng-deep .tab-number:lang(zh-TW) {
-  font-weight: bold;
-  font-family: "Aktiv Grotesk W01 TC Bold", "sans-serif";
-}
-:host ::ng-deep .tab-number:lang(sc), :host ::ng-deep .tab-number:lang(zh-CN) {
-  font-family: "Aktiv Grotesk W01 SC Bold", "sans-serif";
-}
-:host ::ng-deep .tab-number:lang(ja), :host ::ng-deep .tab-number:lang(ja-JP) {
-  font-family: "Aktiv Grotesk W01 JP Bold", "sans-serif";
-}
-:host ::ng-deep .tab-number:hover {
-  text-decoration: unset;
-}
-
-[class^=fui-icon] {
-  font-size: 1.25rem;
 }

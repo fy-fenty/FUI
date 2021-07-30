@@ -11,9 +11,38 @@ const Template: Story<MessageTipComponent> = (args: MessageTipComponent) => ({
   props: args,
 });
 
-export const Default = Template.bind({});
-Default.args = {
-  message: "asdasd",
+export const Success = Template.bind({});
+Success.args = {
+  message: "success",
   visible: true,
   messageType: 'success',
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  message: "error",
+  visible: true,
+  messageType: 'error',
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  message: "warning",
+  visible: true,
+  messageType: 'warning',
+};
+
+export const Reminder = Template.bind({});
+Reminder.args = {
+  message: "reminder",
+  visible: true,
+  messageType: 'reminder',
+};
+
+export const ReminderWithTitle = Template.bind({});
+ReminderWithTitle.args = {
+  title: 'title',
+  message: "reminder",
+  visible: true,
+  messageType: 'reminder',
 };

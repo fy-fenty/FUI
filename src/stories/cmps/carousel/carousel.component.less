@@ -1,3 +1,5 @@
+@import url(../../assets/less/font-awesome.less);
+
 .disable-transition {
   -webkit-transition: none;
   -moz-transition: none;
@@ -55,8 +57,7 @@
 .carousel-wrap .carousel-items .carousel:hover .desc-tit {
   text-decoration: underline;
 }
-.carousel-wrap .left-cont,
-.carousel-wrap .right-cont {
+.carousel-wrap .arrow-item {
   display: flex;
   align-items: center;
   width: 3.75rem;
@@ -69,29 +70,29 @@
 .carousel-wrap .left-cont:hover, .carousel-wrap .right-cont:hover {
   cursor: pointer;
 }
-.carousel-wrap em {
+.carousel-wrap span {
   color: #006564;
-  font-size: 1.125rem;
+  font-size: 1.6rem;
   transition: margin 0.3s;
 }
 .carousel-wrap .left-cont {
   margin-left: -30px;
   justify-content: flex-end;
 }
-.carousel-wrap .left-cont:hover em {
+.carousel-wrap .left-cont:hover span {
   margin-right: 1.125rem;
 }
-.carousel-wrap .left-cont em {
+.carousel-wrap .left-cont span {
   margin-right: 0.75rem;
 }
 .carousel-wrap .right-cont {
   margin-right: -30px;
   justify-content: flex-start;
 }
-.carousel-wrap .right-cont:hover em {
+.carousel-wrap .right-cont:hover span {
   margin-left: 1.125rem;
 }
-.carousel-wrap .right-cont em {
+.carousel-wrap .right-cont span {
   margin-left: 0.75rem;
 }
 
@@ -104,6 +105,7 @@
 }
 .pages ol li {
   list-style-type: none;
+  cursor: pointer;
   float: left;
   border: 1px solid #979797;
   width: 0.625rem;

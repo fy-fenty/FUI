@@ -4,7 +4,7 @@
   *ngIf="visible"
   [class.grey-tip]="isGreyBg"
 >
-  <i class="icon message-icon"></i>
+  <i class="icon message-icon {{iconType}}"></i>
   <div class="message-content">
     <strong class="tip-title" [hidden]="!title">{{ title }}</strong>
     <span

@@ -11,22 +11,18 @@
       [attr.aria-controls]="idRef + '-body'"
       (click)="headerClicked($event)"
     >
-      <i
-        class="icon-arrow"
+      <i class="icon-arrow"
         *ngIf="!searchbox"
         [ngClass]="
-          expanded ? 'fui-icon-arrow-up-sharp' : 'fui-icon-arrow-down-sharp'
+          expanded ? 'icon-angle-down' : 'icon-angle-right'
         "
       ></i>
-      <i
-        class="icon-arrow"
+      <i class="icon-arrow"
         *ngIf="searchbox"
-        [ngClass]="expanded ? 'fui-icon-arrow-top' : 'fui-icon-arrow-bottom'"
+        [ngClass]="expanded ? 'icon-angle-down' : 'icon-angle-right'"
       ></i>
       {{ headerLabel }}
-      <span class="tab-number" *ngIf="config?.counterTotal">{{
-        config?.counterTotal
-      }}</span>
+      <span class="tab-number" *ngIf="tips">{{ tips }}</span>
       <em class="px-2" [ngClass]="headerIcon" *ngIf="headerIcon"></em>
     </a>
   </div>

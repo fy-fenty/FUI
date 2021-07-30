@@ -7,6 +7,7 @@ import * as uuid from 'uuid';
   styleUrls: ['./accordion.component.less']
 })
 export default class AccordionComponent implements OnInit, OnChanges {
+  @Input() tips: string = '';
   @Input() headerLabel: string = '';
   @Input() searchbox: boolean = false;
   @Input() headerIcon: string = '';

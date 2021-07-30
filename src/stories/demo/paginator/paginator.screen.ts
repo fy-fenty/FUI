@@ -3,7 +3,6 @@
 import { Component, ViewChild } from '@angular/core';
 import PaginatorComponent from 'src/stories/cmps/paginator/paginator.component';
 
-
 @Component({
   selector: 'paginator-screen',
   templateUrl: './paginator.screen.html',

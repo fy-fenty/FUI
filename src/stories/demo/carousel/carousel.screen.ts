@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./carousel.screen.less']
 })
 export default class CarouselScreen {
-  public carousels = [1, 2, 3];
+  public carousels = ['Slide A', 'Slide B', 'Slide C'];
   constructor() { }
 
   ngOnInit() {

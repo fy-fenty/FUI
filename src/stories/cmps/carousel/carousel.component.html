@@ -2,18 +2,14 @@
   <div #arrowWrap class="arrow-wrap">
     <div
       *ngIf="carouselList?.length > 1"
-      class="left-cont"
+      class="arrow-item left-cont"
       (click)="gotoPage(curInde - 1)"
-    >
-      &lt;
-    </div>
+    ><span class="icon-angle-left"></span></div>
     <div
       *ngIf="carouselList?.length > 1"
-      class="right-cont"
+      class="arrow-item right-cont"
       (click)="gotoPage(curInde + 1)"
-    >
-      &gt;
-    </div>
+    ><span class="icon-angle-right"></span></div>
   </div>
   <div
     class="carousel-items"
