@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "TooltipModel",
-            "id": "interface-TooltipModel-a4239fd8e071fe1456701de5f5d9f03c",
+            "id": "interface-TooltipModel-dc179e4b06b89757450198d5c3f0562f",
             "file": "src/stories/cmps/tooltip/tooltip.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export default interface TooltipModel {\n  life?: number,\n  tipType?: string,\n  title: string,\n  message: string\n}\n",
+            "sourceCode": "export default interface TooltipModel {\n  life?: number,\n  type?: string,\n  title: string,\n  message: string\n}\n",
             "properties": [
                 {
                     "name": "life",
@@ -29,15 +29,6 @@
                     "line": 5
                 },
                 {
-                    "name": "tipType",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": true,
-                    "description": "",
-                    "line": 3
-                },
-                {
                     "name": "title",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -45,6 +36,15 @@
                     "optional": false,
                     "description": "",
                     "line": 4
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 3
                 }
             ],
             "indexSignatures": [],
@@ -1007,7 +1007,7 @@
         },
         {
             "name": "MessageTipComponent",
-            "id": "component-MessageTipComponent-4206a0b8ace3e89ce01c75b936bda42c",
+            "id": "component-MessageTipComponent-c56277f2d27d1332f0677cb2d9ba142e",
             "file": "src/stories/cmps/messagetip/messagetip.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1045,13 +1045,6 @@
                     "type": "string"
                 },
                 {
-                    "name": "messageType",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 45,
-                    "type": ""
-                },
-                {
                     "name": "title",
                     "defaultValue": "''",
                     "deprecated": false,
@@ -1060,6 +1053,13 @@
                     "description": "<p>This title will shown before as the message</p>\n",
                     "line": 18,
                     "type": "string"
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": ""
                 },
                 {
                     "name": "visible",
@@ -1087,7 +1087,7 @@
             "propertiesClass": [
                 {
                     "name": "_messageType",
-                    "defaultValue": "'success'",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string",
@@ -1098,7 +1098,7 @@
                 },
                 {
                     "name": "iconType",
-                    "defaultValue": "'icon-ok'",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string",
@@ -1126,7 +1126,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  OnInit,\n  Input,\n  Output,\n  EventEmitter\n} from '@angular/core';\n\n@Component({\n\tselector: 'fui-messagetip',\n\ttemplateUrl: './messagetip.component.html',\n\tstyleUrls: ['./messagetip.component.less']\n})\nexport default class MessageTipComponent implements OnInit {\n  /**\n   * This title will shown before as the message\n   */\n\t@Input() title: string = '';\n\n  /**\n   * What text would be dispalyed\n   */\n\t@Input() message: string = '';\n\n  /**\n   * In default, will dispaly.\n   */\n  @Input() visible: boolean = true;\n\n  /**\n   * Is grey background?\n   */\n\t@Input() isGreyBg: boolean = false;\n\n\ticonType: string = 'icon-ok';\n\n  /**\n   * Intermediate variable, for iconType\n   */\n  _messageType: string = 'success';\n\n  get messageType(): any {\n    return this._messageType;\n  }\n  @Input() set messageType(message: 'success' | 'error' | 'warning' | 'reminder') {\n    this._messageType = message;\n    switch(message) {\n      case 'success':\n        this.iconType = 'icon-ok';\n      break;\n      case 'error':\n        this.iconType = 'icon-remove'\n      break;\n      case 'warning':\n        this.iconType = 'icon-warning-sign';\n      break;\n      default:\n        this.iconType = 'icon-info-sign';\n      break;\n    }\n  }\n\n  /**\n   * The message type, success or error or warning or reminder\n   */\n\t@Output() visibleChange: EventEmitter<boolean> = new EventEmitter();\n\n\tconstructor() { }\n\n\tngOnInit() { }\n}\n",
+            "sourceCode": "import {\n  Component,\n  OnInit,\n  Input,\n  Output,\n  EventEmitter\n} from '@angular/core';\n\n@Component({\n\tselector: 'fui-messagetip',\n\ttemplateUrl: './messagetip.component.html',\n\tstyleUrls: ['./messagetip.component.less']\n})\nexport default class MessageTipComponent implements OnInit {\n  /**\n   * This title will shown before as the message\n   */\n\t@Input() title: string = '';\n\n  /**\n   * What text would be dispalyed\n   */\n\t@Input() message: string = '';\n\n  /**\n   * In default, will dispaly.\n   */\n  @Input() visible: boolean = true;\n\n  /**\n   * Is grey background?\n   */\n\t@Input() isGreyBg: boolean = false;\n\n\ticonType: string = '';\n\n  /**\n   * Intermediate variable, for iconType\n   */\n  _messageType: string = '';\n\n  @Input() set type(type: 'success' | 'error' | 'warning' | 'reminder') {\n    this._messageType = type;\n    switch(type) {\n      case 'success':\n        this.iconType = 'icon-ok';\n      break;\n      case 'error':\n        this.iconType = 'icon-remove'\n      break;\n      case 'warning':\n        this.iconType = 'icon-warning-sign';\n      break;\n      default:\n        this.iconType = 'icon-info-sign';\n      break;\n    }\n  }\n  get type(): any {\n    return this._messageType;\n  }\n\n  /**\n   * The message type, success or error or warning or reminder\n   */\n\t@Output() visibleChange: EventEmitter<boolean> = new EventEmitter();\n\n\tconstructor() { }\n\n\tngOnInit() { }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1147,26 +1147,26 @@
                 "OnInit"
             ],
             "accessors": {
-                "messageType": {
-                    "name": "messageType",
+                "type": {
+                    "name": "type",
                     "setSignature": {
-                        "name": "messageType",
+                        "name": "type",
                         "type": "void",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "args": [
                             {
-                                "name": "message",
+                                "name": "type",
                                 "type": "\"success\" | \"error\" | \"warning\" | \"reminder\"",
                                 "deprecated": false,
                                 "deprecationMessage": ""
                             }
                         ],
                         "returnType": "void",
-                        "line": 45,
+                        "line": 42,
                         "jsdoctags": [
                             {
-                                "name": "message",
+                                "name": "type",
                                 "type": "\"success\" | \"error\" | \"warning\" | \"reminder\"",
                                 "deprecated": false,
                                 "deprecationMessage": "",
@@ -1177,18 +1177,18 @@
                         ]
                     },
                     "getSignature": {
-                        "name": "messageType",
+                        "name": "type",
                         "type": "any",
                         "returnType": "any",
-                        "line": 42
+                        "line": 59
                     }
                 }
             },
-            "templateData": "<div\n  class=\"tip-container {{ messageType }}-tip\"\n  tabindex=\"0\"\n  *ngIf=\"visible\"\n  [class.grey-tip]=\"isGreyBg\"\n>\n  <i class=\"icon message-icon {{iconType}}\"></i>\n  <div class=\"message-content\">\n    <strong class=\"tip-title\" [hidden]=\"!title\">{{ title }}</strong>\n    <span\n      class=\"tip-content\"\n      [hidden]=\"!message\"\n      [innerHTML]=\"message\"\n    ></span>\n  </div>\n</div>\n"
+            "templateData": "<div\n  class=\"tip-container {{ type }}-tip\"\n  tabindex=\"0\"\n  *ngIf=\"visible\"\n  [class.grey-tip]=\"isGreyBg\"\n>\n  <i class=\"icon message-icon {{iconType}}\"></i>\n  <div class=\"message-content\">\n    <strong class=\"tip-title\" [hidden]=\"!title\">{{ title }}</strong>\n    <span\n      class=\"tip-content\"\n      [hidden]=\"!message\"\n      [innerHTML]=\"message\"\n    ></span>\n  </div>\n</div>\n"
         },
         {
             "name": "PageComponent",
-            "id": "component-PageComponent-02b5d7729c1088a32fd3791097fda3b5",
+            "id": "component-PageComponent-b1fac378dd776b4b0ab01b664fde8671",
             "file": "src/stories/demo/tooltip/tooltip.screen.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1224,7 +1224,7 @@
                             "deprecationMessage": ""
                         },
                         {
-                            "name": "msgType",
+                            "name": "type",
                             "type": "string",
                             "deprecated": false,
                             "deprecationMessage": ""
@@ -1256,7 +1256,7 @@
                             }
                         },
                         {
-                            "name": "msgType",
+                            "name": "type",
                             "type": "string",
                             "deprecated": false,
                             "deprecationMessage": "",
@@ -1274,7 +1274,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { TooltipService } from '../../cmps/tooltip/tooltip.services';\n\n@Component({\n  selector: 'Page',\n  templateUrl: './tooltip.screen.html',\n  styleUrls: ['./tooltip.screen.less'],\n})\nexport default class PageComponent {\n  constructor(\n    private tipService: TooltipService\n  ) { }\n\n  showTip(title: string, message: string, msgType: string) {\n    this.tipService.showPopup({\n      message: message,\n      title: title,\n      tipType: msgType,\n      life: 3000\n    });\n  }\n}\n\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { TooltipService } from '../../cmps/tooltip/tooltip.services';\n\n@Component({\n  selector: 'Page',\n  templateUrl: './tooltip.screen.html',\n  styleUrls: ['./tooltip.screen.less'],\n})\nexport default class PageComponent {\n  constructor(\n    private tipService: TooltipService\n  ) { }\n\n  showTip(title: string, message: string, type: string) {\n    this.tipService.showPopup({\n      message,\n      title,\n      type,\n      life: 3000\n    });\n  }\n}\n\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1682,7 +1682,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".page-ui {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin: 8px 0;\n\n  > * {\n    padding: 0 10px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n  li {\n    list-style-type: none;\n    display: inline-block;\n    padding: 0 10px;\n  }\n\n  .page-splitor {\n    padding: 0;\n    margin: 0 -5px;\n  }\n\n  .for-tablet, .for-mobile {\n    display: none;\n  }\n\n  .for-desktop {\n    display: flex;\n  }\n}\n\n/* pad Screen*/\n@media screen and (max-width:768px){\n  .page-ui {\n    .for-desktop {\n      display:none;\n    }\n    .for-tablet {\n      display: flex;\n    }\n    .for-mobile {\n      display:none;\n    }\n  }\n}\n\n /*mobile Screen*/\n @media screen and (max-width:520px){\n  .page-ui {\n    .for-desktop {\n      display: none;\n    }\n    .for-tablet {\n      display:none;\n    }\n    .for-mobile {\n      display:flex;\n    }\n    .pagintor-index {\n      >* {\n        padding: 0 4px;\n        vertical-align: middle;\n      }\n    }\n  }\n}\n",
+                    "data": ".page-ui {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin: 8px 0;\n\n  > * {\n    padding: 0 8px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n  li {\n    list-style-type: none;\n    display: inline-block;\n    padding: 0 8px;\n    a {\n      color: #333;\n      text-decoration: none;\n    }\n    .current {\n      font-weight: bold;\n    }\n  }\n\n  .page-splitor {\n    padding: 0;\n    margin: 0;\n  }\n\n  .for-tablet, .for-mobile {\n    display: none;\n  }\n\n  .for-desktop {\n    display: flex;\n  }\n}\n\n/* pad Screen*/\n@media screen and (max-width:768px){\n  .page-ui {\n    .for-desktop {\n      display:none;\n    }\n    .for-tablet {\n      display: flex;\n    }\n    .for-mobile {\n      display:none;\n    }\n  }\n}\n\n /*mobile Screen*/\n @media screen and (max-width:520px){\n  .page-ui {\n    .for-desktop {\n      display: none;\n    }\n    .for-tablet {\n      display:none;\n    }\n    .for-mobile {\n      display:flex;\n    }\n    .pagintor-index {\n      >* {\n        padding: 0 4px;\n        vertical-align: middle;\n      }\n    }\n  }\n}\n",
                     "styleUrl": "./paginator.component.less"
                 }
             ],
@@ -1733,7 +1733,7 @@
                     }
                 }
             },
-            "templateData": "<nav\n  class=\"page-ui\"\n  *ngIf=\"pageArr.length > 1\"\n  scrollType=\"top\"\n>\n  <fui-button [label]=\"preLabel\" (onClick)=\"changePage('pre')\" *ngIf=\"currentPage !== 0\"></fui-button>\n  <ul class=\"for-desktop for-tablet\">\n    <li\n      class=\"first-page\"\n      *ngIf=\"pageCount > pageLinkSize && currentPage >= pageLinkSize - 2\"\n    >\n      <a href=\"javascript:;\" (click)=\"changePage(0)\">1</a>\n    </li>\n\n    <li\n      class=\"page-splitor\"\n      *ngIf=\"pageCount > pageLinkSize + 1 && currentPage >= pageLinkSize - 1\"\n    >\n      ...\n    </li>\n    <li *ngFor=\"let page of pageArr\">\n      <strong *ngIf=\"page == currentPage\">{{ page + 1 }}</strong>\n      <a\n        *ngIf=\"page !== currentPage\"\n        href=\"javascript:;\"\n        (click)=\"changePage(page)\"\n        >{{ page + 1 }}</a\n      >\n    </li>\n    <li\n      class=\"page-splitor\"\n      *ngIf=\"\n        pageCount > pageLinkSize + 1 && currentPage <= pageCount - pageLinkSize\n      \"\n    >\n      ...\n    </li>\n    <li\n      class=\"last-page\"\n      *ngIf=\"\n        pageCount > pageLinkSize && currentPage <= pageCount - pageLinkSize + 1\n      \"\n    >\n      <a href=\"javascript:;\" (click)=\"changePage(pageCount - 1)\">{{\n        pageCount\n      }}</a>\n    </li>\n  </ul>\n  <span class=\"for-mobile pagintor-index\">\n    <strong class=\"current-page\">{{ currentPage + 1 }}</strong>\n    <span>/</span>\n    <span>{{ pageCount }}</span>\n  </span>\n  <fui-button [label]=\"nextLabel\" (onClick)=\"changePage('next')\" *ngIf=\"currentPage < pageCount - 1\"></fui-button>\n</nav>\n"
+            "templateData": "<nav\n  class=\"page-ui\"\n  *ngIf=\"pageArr.length > 1\"\n  scrollType=\"top\"\n>\n  <fui-button [label]=\"preLabel\" (onClick)=\"changePage('pre')\" *ngIf=\"currentPage !== 0\"></fui-button>\n  <ul class=\"for-desktop for-tablet\">\n    <li\n      class=\"first-page\"\n      *ngIf=\"pageCount > pageLinkSize && currentPage >= pageLinkSize - 2\"\n    >\n      <a href=\"javascript:;\" (click)=\"changePage(0)\">1</a>\n    </li>\n\n    <li\n      class=\"page-splitor\"\n      *ngIf=\"pageCount > pageLinkSize + 1 && currentPage >= pageLinkSize - 1\"\n    >\n      ...\n    </li>\n    <li *ngFor=\"let page of pageArr\">\n      <span class=\"current\" *ngIf=\"page == currentPage\">{{ page + 1 }}</span>\n      <a\n        *ngIf=\"page !== currentPage\"\n        href=\"javascript:;\"\n        (click)=\"changePage(page)\"\n        >{{ page + 1 }}</a\n      >\n    </li>\n    <li\n      class=\"page-splitor\"\n      *ngIf=\"\n        pageCount > pageLinkSize + 1 && currentPage <= pageCount - pageLinkSize\n      \"\n    >\n      ...\n    </li>\n    <li\n      class=\"last-page\"\n      *ngIf=\"\n        pageCount > pageLinkSize && currentPage <= pageCount - pageLinkSize + 1\n      \"\n    >\n      <a href=\"javascript:;\" (click)=\"changePage(pageCount - 1)\">{{\n        pageCount\n      }}</a>\n    </li>\n  </ul>\n  <span class=\"for-mobile pagintor-index\">\n    <strong class=\"current-page\">{{ currentPage + 1 }}</strong>\n    <span>/</span>\n    <span>{{ pageCount }}</span>\n  </span>\n  <fui-button [label]=\"nextLabel\" (onClick)=\"changePage('next')\" *ngIf=\"currentPage < pageCount - 1\"></fui-button>\n</nav>\n"
         },
         {
             "name": "PaginatorScreen",
@@ -2786,7 +2786,7 @@
                 "OnInit",
                 "OnDestroy"
             ],
-            "templateData": "<div class=\"tip-container\">\n  <div @shown *ngFor=\"let msg of msgTips\" class=\"tip-wrap\">\n    <fui-messagetip *ngIf=\"msg\" [messageType]=\"msg.tipType || 'success'\" visible=true [title]=\"msg.title\" [message]=\"msg.message\"></fui-messagetip>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"tip-container\">\n  <div @shown *ngFor=\"let msg of msgTips\" class=\"tip-wrap\">\n    <fui-messagetip *ngIf=\"msg\" [type]=\"msg.type || 'success'\" visible=true [title]=\"msg.title\" [message]=\"msg.message\"></fui-messagetip>\n  </div>\n</div>\n"
         }
     ],
     "modules": [
@@ -2871,7 +2871,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/cmps/tooltip/Tooltip.stories.ts",
+                "file": "src/stories/cmps/tabs/Tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2881,7 +2881,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/demo/accordion/Accordion.stories.ts",
+                "file": "src/stories/cmps/tooltip/Tooltip.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2901,7 +2901,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/demo/paginator/Paginator.stories.ts",
+                "file": "src/stories/demo/accordion/Accordion.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2921,7 +2921,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/demo/tooltip/Tooltip.stories.ts",
+                "file": "src/stories/demo/paginator/Paginator.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2931,7 +2931,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/cmps/tabs/Tabs.stories.ts",
+                "file": "src/stories/demo/tooltip/Tooltip.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3120,11 +3120,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/cmps/radio/Radio.stories.ts",
+                "file": "src/stories/cmps/tabs/Tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<Radio>",
-                "defaultValue": "(args: Radio) => ({\n  props: args,\n})"
+                "type": "Story<TabsComponent>",
+                "defaultValue": "(args: TabsComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3140,11 +3140,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/demo/accordion/Accordion.stories.ts",
+                "file": "src/stories/cmps/radio/Radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<AccordionScreen>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
+                "type": "Story<Radio>",
+                "defaultValue": "(args: Radio) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3160,10 +3160,10 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/demo/paginator/Paginator.stories.ts",
+                "file": "src/stories/demo/accordion/Accordion.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<PaginatorScreen>",
+                "type": "Story<AccordionScreen>",
                 "defaultValue": "(args) => ({\n  props: args,\n})"
             },
             {
@@ -3180,21 +3180,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/demo/tooltip/Tooltip.stories.ts",
+                "file": "src/stories/demo/paginator/Paginator.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<TooltipScreen>",
-                "defaultValue": "(args: TooltipScreen) => ({\n  props: args,\n})"
+                "type": "Story<PaginatorScreen>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/cmps/tabs/Tabs.stories.ts",
+                "file": "src/stories/demo/tooltip/Tooltip.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<TabsComponent>",
-                "defaultValue": "(args: TabsComponent) => ({\n  props: args,\n})"
+                "type": "Story<TooltipScreen>",
+                "defaultValue": "(args: TooltipScreen) => ({\n  props: args,\n})"
             },
             {
                 "name": "Warning",
@@ -3286,6 +3286,28 @@
                     "defaultValue": "(args: PaginatorComponent) => ({\n  props: args,\n})"
                 }
             ],
+            "src/stories/cmps/tabs/Tabs.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/cmps/tabs/Tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/cmps/tabs/Tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TabsComponent>",
+                    "defaultValue": "(args: TabsComponent) => ({\n  props: args,\n})"
+                }
+            ],
             "src/stories/cmps/tooltip/Tooltip.stories.ts": [
                 {
                     "name": "Default",
@@ -3306,28 +3328,6 @@
                     "deprecationMessage": "",
                     "type": "Story<TooltipComponent>",
                     "defaultValue": "(args: TooltipComponent) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/stories/demo/accordion/Accordion.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/demo/accordion/Accordion.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/demo/accordion/Accordion.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<AccordionScreen>",
-                    "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
             "src/stories/demo/carousel/Carousel.stories.ts": [
@@ -3352,12 +3352,12 @@
                     "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
-            "src/stories/demo/paginator/Paginator.stories.ts": [
+            "src/stories/demo/accordion/Accordion.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/demo/paginator/Paginator.stories.ts",
+                    "file": "src/stories/demo/accordion/Accordion.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3367,10 +3367,10 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/demo/paginator/Paginator.stories.ts",
+                    "file": "src/stories/demo/accordion/Accordion.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<PaginatorScreen>",
+                    "type": "Story<AccordionScreen>",
                     "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
@@ -3396,6 +3396,28 @@
                     "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
+            "src/stories/demo/paginator/Paginator.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/demo/paginator/Paginator.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/demo/paginator/Paginator.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<PaginatorScreen>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
             "src/stories/demo/tooltip/Tooltip.stories.ts": [
                 {
                     "name": "Default",
@@ -3416,28 +3438,6 @@
                     "deprecationMessage": "",
                     "type": "Story<TooltipScreen>",
                     "defaultValue": "(args: TooltipScreen) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/stories/cmps/tabs/Tabs.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/cmps/tabs/Tabs.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/cmps/tabs/Tabs.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<TabsComponent>",
-                    "defaultValue": "(args: TabsComponent) => ({\n  props: args,\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [
