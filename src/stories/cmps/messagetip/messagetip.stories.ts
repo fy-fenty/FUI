@@ -15,28 +15,28 @@ export const Success = Template.bind({});
 Success.args = {
   message: "success",
   visible: true,
-  messageType: 'success',
+  type: 'success',
 };
 
 export const Error = Template.bind({});
 Error.args = {
   message: "error",
   visible: true,
-  messageType: 'error',
+  type: 'error',
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
   message: "warning",
   visible: true,
-  messageType: 'warning',
+  type: 'warning',
 };
 
 export const Reminder = Template.bind({});
 Reminder.args = {
   message: "reminder",
   visible: true,
-  messageType: 'reminder',
+  type: 'reminder',
 };
 
 export const ReminderWithTitle = Template.bind({});
@@ -44,5 +44,5 @@ ReminderWithTitle.args = {
   title: 'title',
   message: "reminder",
   visible: true,
-  messageType: 'reminder',
+  type: 'reminder',
 };

@@ -11,11 +11,11 @@ export default class PageComponent {
     private tipService: TooltipService
   ) { }
 
-  showTip(title: string, message: string, msgType: string) {
+  showTip(title: string, message: string, type: string) {
     this.tipService.showPopup({
-      message: message,
-      title: title,
-      tipType: msgType,
+      message,
+      title,
+      type,
       life: 3000
     });
   }

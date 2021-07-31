@@ -1,6 +1,6 @@
 export default interface TooltipModel {
   life?: number,
-  tipType?: string,
+  type?: string,
   title: string,
   message: string
 }

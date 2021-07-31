@@ -19,7 +19,7 @@
       ...
     </li>
     <li *ngFor="let page of pageArr">
-      <strong *ngIf="page == currentPage">{{ page + 1 }}</strong>
+      <span class="current" *ngIf="page == currentPage">{{ page + 1 }}</span>
       <a
         *ngIf="page !== currentPage"
         href="javascript:;"

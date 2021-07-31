@@ -2881,7 +2881,17 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/cmps/tabs/Tabs.stories.ts",
+                "file": "src/stories/demo/accordion/Accordion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/demo/carousel/Carousel.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2921,17 +2931,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/demo/carousel/Carousel.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/demo/accordion/Accordion.stories.ts",
+                "file": "src/stories/cmps/tabs/Tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2981,7 +2981,7 @@
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/cmps/radio/Radio.stories.ts",
+                "file": "src/stories/cmps/button/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2991,7 +2991,7 @@
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/cmps/button/Button.stories.ts",
+                "file": "src/stories/cmps/radio/Radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3050,7 +3050,7 @@
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/cmps/radio/Radio.stories.ts",
+                "file": "src/stories/cmps/button/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3060,7 +3060,7 @@
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/cmps/button/Button.stories.ts",
+                "file": "src/stories/cmps/radio/Radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3085,6 +3085,16 @@
                 "deprecationMessage": "",
                 "type": "Story<AccordionComponent>",
                 "defaultValue": "(args: AccordionComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/cmps/button/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3120,16 +3130,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/cmps/button/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/cmps/tooltip/Tooltip.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3140,11 +3140,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/cmps/tabs/Tabs.stories.ts",
+                "file": "src/stories/demo/accordion/Accordion.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<TabsComponent>",
-                "defaultValue": "(args: TabsComponent) => ({\n  props: args,\n})"
+                "type": "Story<AccordionScreen>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/demo/carousel/Carousel.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<CarouselScreen>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3180,21 +3190,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/demo/carousel/Carousel.stories.ts",
+                "file": "src/stories/cmps/tabs/Tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<CarouselScreen>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/demo/accordion/Accordion.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<AccordionScreen>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
+                "type": "Story<TabsComponent>",
+                "defaultValue": "(args: TabsComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Warning",
@@ -3308,12 +3308,12 @@
                     "defaultValue": "(args: TooltipComponent) => ({\n  props: args,\n})"
                 }
             ],
-            "src/stories/cmps/tabs/Tabs.stories.ts": [
+            "src/stories/demo/accordion/Accordion.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/cmps/tabs/Tabs.stories.ts",
+                    "file": "src/stories/demo/accordion/Accordion.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3323,11 +3323,33 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/cmps/tabs/Tabs.stories.ts",
+                    "file": "src/stories/demo/accordion/Accordion.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<TabsComponent>",
-                    "defaultValue": "(args: TabsComponent) => ({\n  props: args,\n})"
+                    "type": "Story<AccordionScreen>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/stories/demo/carousel/Carousel.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/demo/carousel/Carousel.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/demo/carousel/Carousel.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<CarouselScreen>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
             "src/stories/demo/paginator/Paginator.stories.ts": [
@@ -3396,12 +3418,12 @@
                     "defaultValue": "(args: TooltipScreen) => ({\n  props: args,\n})"
                 }
             ],
-            "src/stories/demo/carousel/Carousel.stories.ts": [
+            "src/stories/cmps/tabs/Tabs.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/demo/carousel/Carousel.stories.ts",
+                    "file": "src/stories/cmps/tabs/Tabs.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3411,33 +3433,11 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/demo/carousel/Carousel.stories.ts",
+                    "file": "src/stories/cmps/tabs/Tabs.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<CarouselScreen>",
-                    "defaultValue": "(args) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/stories/demo/accordion/Accordion.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/demo/accordion/Accordion.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/demo/accordion/Accordion.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<AccordionScreen>",
-                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                    "type": "Story<TabsComponent>",
+                    "defaultValue": "(args: TabsComponent) => ({\n  props: args,\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -3526,38 +3526,6 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
-            "src/stories/cmps/radio/Radio.stories.ts": [
-                {
-                    "name": "Large",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/cmps/radio/Radio.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/cmps/radio/Radio.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/cmps/radio/Radio.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Radio>",
-                    "defaultValue": "(args: Radio) => ({\n  props: args,\n})"
-                }
-            ],
             "src/stories/cmps/button/Button.stories.ts": [
                 {
                     "name": "Large",
@@ -3608,6 +3576,38 @@
                     "deprecationMessage": "",
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/stories/cmps/radio/Radio.stories.ts": [
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/cmps/radio/Radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/cmps/radio/Radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/cmps/radio/Radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<Radio>",
+                    "defaultValue": "(args: Radio) => ({\n  props: args,\n})"
                 }
             ]
         },

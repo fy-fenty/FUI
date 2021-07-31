@@ -32,19 +32,16 @@ export default class MessageTipComponent implements OnInit {
    */
 	@Input() isGreyBg: boolean = false;
 
-	iconType: string = 'icon-ok';
+	iconType: string = '';
 
   /**
    * Intermediate variable, for iconType
    */
-  _messageType: string = 'success';
+  _messageType: string = '';
 
-  get messageType(): any {
-    return this._messageType;
-  }
-  @Input() set messageType(message: 'success' | 'error' | 'warning' | 'reminder') {
-    this._messageType = message;
-    switch(message) {
+  @Input() set type(type: 'success' | 'error' | 'warning' | 'reminder') {
+    this._messageType = type;
+    switch(type) {
       case 'success':
         this.iconType = 'icon-ok';
       break;
@@ -58,6 +55,9 @@ export default class MessageTipComponent implements OnInit {
         this.iconType = 'icon-info-sign';
       break;
     }
+  }
+  get type(): any {
+    return this._messageType;
   }
 
   /**
